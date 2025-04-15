@@ -1,0 +1,123 @@
+[gd_scene load_steps=8 format=3 uid="uid://bmaxtlpcxkxk4"]
+
+[ext_resource type="FontFile" uid="uid://fghmgep24ixa" path="res://assets/fonts/venite-adoremus-font/VeniteAdoremus-rgRBA.ttf" id="1_oylq1"]
+[ext_resource type="Script" path="res://main_menu.gd" id="1_xa26j"]
+[ext_resource type="Texture2D" uid="uid://bkgmch638036w" path="res://assets/ui/ui_bg.png" id="2_fh5b8"]
+[ext_resource type="Texture2D" uid="uid://dvttdi8y6wt86" path="res://assets/ui/ninjutsuDash_logo.png" id="4_wai8e"]
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_7yhkc"]
+texture = ExtResource("2_fh5b8")
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_ysw0r"]
+bg_color = Color(0.545098, 0, 0, 1)
+corner_radius_top_left = 16
+corner_radius_top_right = 16
+corner_radius_bottom_right = 16
+corner_radius_bottom_left = 16
+shadow_color = Color(1, 1, 1, 1)
+shadow_size = 2
+shadow_offset = Vector2(0.15, 0.15)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_pdum0"]
+bg_color = Color(0, 0, 0, 1)
+corner_radius_top_left = 16
+corner_radius_top_right = 16
+corner_radius_bottom_right = 16
+corner_radius_bottom_left = 16
+shadow_size = 2
+
+[node name="MainMenu" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_xa26j")
+
+[node name="Panel" type="Panel" parent="."]
+z_as_relative = false
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+theme_override_styles/panel = SubResource("StyleBoxTexture_7yhkc")
+
+[node name="VBoxContainer" type="VBoxContainer" parent="."]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -259.0
+offset_top = -37.0
+offset_right = 260.0
+offset_bottom = 214.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="start_button" type="Button" parent="VBoxContainer"]
+z_index = 1
+layout_mode = 2
+size_flags_vertical = 2
+mouse_default_cursor_shape = 2
+theme_override_colors/font_hover_color = Color(1, 0.74902, 0, 1)
+theme_override_colors/font_pressed_color = Color(0.862745, 0.0784314, 0.235294, 1)
+theme_override_fonts/font = ExtResource("1_oylq1")
+theme_override_font_sizes/font_size = 35
+theme_override_styles/hover = SubResource("StyleBoxFlat_ysw0r")
+theme_override_styles/normal = SubResource("StyleBoxFlat_pdum0")
+shortcut_feedback = false
+shortcut_in_tooltip = false
+text = "START GAME"
+
+[node name="options_button" type="Button" parent="VBoxContainer"]
+z_index = 1
+layout_mode = 2
+size_flags_vertical = 2
+mouse_default_cursor_shape = 2
+theme_override_colors/font_hover_color = Color(1, 0.74902, 0, 1)
+theme_override_colors/font_pressed_color = Color(0.862745, 0.0784314, 0.235294, 1)
+theme_override_fonts/font = ExtResource("1_oylq1")
+theme_override_font_sizes/font_size = 35
+theme_override_styles/hover = SubResource("StyleBoxFlat_ysw0r")
+theme_override_styles/normal = SubResource("StyleBoxFlat_pdum0")
+shortcut_feedback = false
+shortcut_in_tooltip = false
+text = "OPTIONS
+"
+
+[node name="exit_button" type="Button" parent="VBoxContainer"]
+z_index = 1
+layout_mode = 2
+size_flags_vertical = 2
+mouse_default_cursor_shape = 2
+theme_override_colors/font_hover_color = Color(1, 0.74902, 0, 1)
+theme_override_colors/font_pressed_color = Color(0.862745, 0.0784314, 0.235294, 1)
+theme_override_fonts/font = ExtResource("1_oylq1")
+theme_override_font_sizes/font_size = 35
+theme_override_styles/hover = SubResource("StyleBoxFlat_ysw0r")
+theme_override_styles/normal = SubResource("StyleBoxFlat_pdum0")
+shortcut_feedback = false
+shortcut_in_tooltip = false
+text = "EXIT"
+
+[node name="TextureRect" type="TextureRect" parent="."]
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -246.0
+offset_top = -42.0
+offset_right = 254.0
+offset_bottom = 458.0
+grow_horizontal = 2
+mouse_filter = 2
+texture = ExtResource("4_wai8e")
+
+[connection signal="pressed" from="VBoxContainer/start_button" to="." method="_on_start_button_pressed"]
+[connection signal="pressed" from="VBoxContainer/exit_button" to="." method="_on_exit_button_pressed"]
